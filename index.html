@@ -1,0 +1,2605 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <meta name="format-detection" content="telephone=no">
+
+    <!-- =========================
+         SEO
+    ========================== -->
+
+    <title>紫可可 Zikeke - 紫可可影视APP官方下载｜海量电影电视剧在线看</title>
+
+    <meta name="description"
+          content="紫可可 Zikeke影视APP，提供电影、电视剧、综艺、动漫等影视内容，高清流畅播放，热门影视持续更新。支持Android下载安装，iOS版本即将上线。">
+
+    <meta name="keywords"
+          content="紫可可,紫可可影视,紫可可APP,Zikeke,Zikeke影视,zikeke.app,影视APP,影视软件,电影APP,电视剧APP,在线看电影,在线看电视剧,高清影视,影视资源,动漫,综艺">
+
+    <meta name="author" content="紫可可 Zikeke">
+
+    <meta name="robots" content="index,follow">
+
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+
+    <!-- 网站地址 -->
+    <link rel="canonical" href="https://zikeke.app/">
+
+    <!-- =========================
+         Open Graph
+    ========================== -->
+
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="紫可可 Zikeke">
+    <meta property="og:title"
+          content="紫可可 Zikeke - 海量影视 · 随心畅看">
+    <meta property="og:description"
+          content="紫可可影视APP，电影、电视剧、综艺、动漫一站式影视体验。">
+    <meta property="og:url" content="https://zikeke.app/">
+    <meta property="og:image" content="https://zikeke.app/logo.png">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title"
+          content="紫可可 Zikeke - 海量影视 · 随心畅看">
+    <meta name="twitter:description"
+          content="紫可可影视APP，海量电影、电视剧、综艺、动漫，高清流畅播放。">
+    <meta name="twitter:image"
+          content="https://zikeke.app/logo.png">
+
+    <!-- =========================
+         Favicon
+    ========================== -->
+
+    <link rel="icon"
+          type="image/png"
+          href="logo.png">
+
+    <style>
+
+        /* =========================
+           Reset
+        ========================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg: #080d2e;
+            --bg2: #10164a;
+
+            --purple: #7654ff;
+            --purple2: #bd43ff;
+            --pink: #ed4df0;
+
+            --white: #ffffff;
+            --text: #15183d;
+            --muted: #777c9c;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family:
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                "PingFang SC",
+                "Microsoft YaHei",
+                sans-serif;
+
+            background: #ffffff;
+            color: var(--text);
+
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+
+        /* =========================
+           Logo
+        ========================== */
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-icon {
+            width: 46px;
+            height: 46px;
+            flex-shrink: 0;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+            line-height: 1;
+        }
+
+        .logo-cn {
+            font-size: 20px;
+            font-weight: 900;
+            letter-spacing: 1px;
+        }
+
+        .logo-en {
+            margin-top: 5px;
+
+            font-size: 11px;
+            letter-spacing: 2px;
+
+            opacity: .75;
+        }
+
+
+        /* =========================
+           Header
+        ========================== */
+
+        .header {
+            position: absolute;
+
+            top: 0;
+            left: 0;
+
+            width: 100%;
+
+            z-index: 20;
+
+            color: white;
+        }
+
+        .header-inner {
+            width: min(1200px, calc(100% - 40px));
+
+            height: 76px;
+
+            margin: auto;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+
+            gap: 38px;
+        }
+
+        .nav a {
+            font-size: 14px;
+
+            color: rgba(255,255,255,.82);
+
+            transition: .25s;
+        }
+
+        .nav a:hover {
+            color: white;
+        }
+
+        .header-btn {
+            padding: 12px 24px;
+
+            border-radius: 30px;
+
+            color: white !important;
+
+            font-weight: 700;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #6951ff,
+                    #d844e9
+                );
+
+            box-shadow:
+                0 8px 25px rgba(133,60,255,.35);
+        }
+
+
+        /* =========================
+           Hero
+        ========================== */
+
+        .hero {
+            min-height: 760px;
+
+            position: relative;
+
+            overflow: hidden;
+
+            color: white;
+
+            background:
+                radial-gradient(
+                    circle at 78% 25%,
+                    rgba(171,59,255,.55),
+                    transparent 30%
+                ),
+                radial-gradient(
+                    circle at 20% 70%,
+                    rgba(55,75,255,.4),
+                    transparent 35%
+                ),
+                linear-gradient(
+                    135deg,
+                    #070b2d 0%,
+                    #11175a 55%,
+                    #25104c 100%
+                );
+        }
+
+        .hero::before {
+            content: "";
+
+            position: absolute;
+
+            width: 600px;
+            height: 600px;
+
+            right: -180px;
+            top: 80px;
+
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(190,60,255,.28),
+                    transparent 70%
+                );
+
+            filter: blur(30px);
+        }
+
+        .hero-inner {
+            width: min(1200px, calc(100% - 40px));
+
+            min-height: 760px;
+
+            margin: auto;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            position: relative;
+
+            z-index: 2;
+        }
+
+
+        /* =========================
+           Hero Content
+        ========================== */
+
+        .hero-content {
+            width: 48%;
+
+            padding-top: 50px;
+        }
+
+        .badge {
+            display: inline-flex;
+
+            padding: 9px 18px;
+
+            border-radius: 30px;
+
+            background:
+                rgba(119,82,255,.2);
+
+            border:
+                1px solid rgba(174,153,255,.25);
+
+            font-size: 13px;
+
+            color: #d9d5ff;
+        }
+
+        .hero-title {
+            margin-top: 22px;
+
+            font-size:
+                clamp(58px,7vw,96px);
+
+            font-weight: 1000;
+
+            letter-spacing: -5px;
+
+            line-height: .95;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #ffffff,
+                    #dcd5ff 45%,
+                    #c34aff
+                );
+
+            -webkit-background-clip: text;
+            background-clip: text;
+
+            color: transparent;
+        }
+
+        .hero-en {
+            margin-top: 8px;
+
+            font-size: 37px;
+
+            font-weight: 800;
+
+            font-style: italic;
+
+            letter-spacing: 3px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #c48cff,
+                    #ed4ce8
+                );
+
+            -webkit-background-clip: text;
+
+            color: transparent;
+        }
+
+        .hero-desc {
+            margin-top: 22px;
+
+            font-size: 26px;
+
+            font-weight: 700;
+        }
+
+        .hero-sub {
+            margin-top: 15px;
+
+            max-width: 560px;
+
+            color: #bdc2e0;
+
+            font-size: 15px;
+
+            line-height: 1.9;
+        }
+
+
+        /* =========================
+           Tags
+        ========================== */
+
+        .tags {
+            margin-top: 22px;
+
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 12px;
+        }
+
+        .tag {
+            display: flex;
+
+            align-items: center;
+
+            gap: 6px;
+
+            color: #e4e5ff;
+
+            font-size: 14px;
+        }
+
+        .tag-icon {
+            width: 27px;
+            height: 27px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 50%;
+
+            background:
+                rgba(255,255,255,.1);
+        }
+
+
+        /* =========================
+           Download
+        ========================== */
+
+        .download-area {
+            margin-top: 30px;
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 14px;
+
+            flex-wrap: wrap;
+        }
+
+        .download-btn {
+            min-width: 180px;
+
+            min-height: 58px;
+
+            padding: 12px 22px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 11px;
+
+            border-radius: 15px;
+
+            color: white;
+
+            font-size: 15px;
+
+            font-weight: 800;
+
+            box-shadow:
+                0 12px 30px rgba(128,61,255,.3);
+
+            transition:
+                transform .25s ease,
+                box-shadow .25s ease,
+                opacity .25s ease;
+        }
+
+        .download-btn:hover {
+            transform: translateY(-3px);
+
+            box-shadow:
+                0 16px 35px rgba(128,61,255,.4);
+        }
+
+        .download-icon {
+            width: 27px;
+            height: 27px;
+
+            flex-shrink: 0;
+
+            display: block;
+        }
+
+        .download-btn > div {
+            display: flex;
+
+            flex-direction: column;
+
+            align-items: flex-start;
+
+            line-height: 1.2;
+        }
+
+        .download-btn small {
+            display: block;
+
+            margin-top: 4px;
+
+            font-size: 10px;
+
+            font-weight: 500;
+
+            opacity: .75;
+        }
+
+        .android-btn {
+            background:
+                linear-gradient(
+                    100deg,
+                    #6454ff,
+                    #d83de8
+                );
+        }
+
+
+        /* =========================
+           iOS 未上线
+        ========================== */
+
+        .ios-btn {
+            position: relative;
+
+            cursor: not-allowed;
+
+            background:
+                linear-gradient(
+                    100deg,
+                    #30345f,
+                    #6249a8
+                );
+
+            opacity: .78;
+
+            box-shadow:
+                none;
+        }
+
+        .ios-btn:hover {
+            transform: none;
+
+            box-shadow: none;
+        }
+
+        .ios-status {
+            position: absolute;
+
+            top: -9px;
+            right: 10px;
+
+            padding: 3px 8px;
+
+            border-radius: 20px;
+
+            background: #ffffff;
+
+            color: #7040d9;
+
+            font-size: 9px;
+
+            font-weight: 800;
+
+            box-shadow:
+                0 5px 15px rgba(0,0,0,.15);
+        }
+
+
+        /* =========================
+           QR
+        ========================== */
+
+        .qr-area {
+            margin-top: 25px;
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 16px;
+        }
+
+        .qr {
+            width: 105px;
+            height: 105px;
+
+            padding: 7px;
+
+            border-radius: 12px;
+
+            background: white;
+
+            box-shadow:
+                0 8px 25px rgba(0,0,0,.18);
+        }
+
+        .qr img {
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+        }
+
+        .qr-text {
+            color: #d6d9f0;
+
+            font-size: 14px;
+
+            line-height: 1.8;
+        }
+
+
+        /* =========================
+           Phones
+        ========================== */
+
+        .hero-phones {
+            width: 48%;
+
+            height: 620px;
+
+            position: relative;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+        }
+
+        .phone {
+            width: 270px;
+            height: 540px;
+
+            position: absolute;
+
+            border: 7px solid #111;
+
+            border-radius: 38px;
+
+            overflow: hidden;
+
+            background:
+                linear-gradient(
+                    160deg,
+                    #20126c,
+                    #0a1238 55%,
+                    #120b30
+                );
+
+            box-shadow:
+                0 30px 80px rgba(0,0,0,.5),
+                inset 0 0 0 1px rgba(255,255,255,.15);
+        }
+
+        .phone-back {
+            transform:
+                rotate(12deg)
+                translate(90px,20px);
+
+            opacity: .9;
+        }
+
+        .phone-front {
+            transform:
+                rotate(-4deg)
+                translate(-30px,5px);
+
+            z-index: 3;
+        }
+
+        .phone-notch {
+            width: 105px;
+            height: 25px;
+
+            position: absolute;
+
+            left: 50%;
+            top: 0;
+
+            transform:
+                translateX(-50%);
+
+            background: #080808;
+
+            border-radius:
+                0 0 18px 18px;
+
+            z-index: 10;
+        }
+
+        .phone-screen {
+            padding: 32px 13px 15px;
+        }
+
+        .app-header {
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            font-size: 13px;
+
+            font-weight: 700;
+        }
+
+        .app-search {
+            height: 35px;
+
+            margin-top: 15px;
+
+            display: flex;
+
+            align-items: center;
+
+            padding: 0 12px;
+
+            border-radius: 20px;
+
+            background:
+                rgba(255,255,255,.12);
+
+            color: #aaaed1;
+
+            font-size: 11px;
+        }
+
+        .app-menu {
+            margin-top: 15px;
+
+            display: flex;
+
+            gap: 17px;
+
+            color: #aeb1d1;
+
+            font-size: 11px;
+
+            white-space: nowrap;
+        }
+
+        .app-menu .active {
+            color: white;
+
+            font-weight: 800;
+        }
+
+        .app-banner {
+            height: 155px;
+
+            margin-top: 16px;
+
+            border-radius: 15px;
+
+            position: relative;
+
+            overflow: hidden;
+
+            background:
+                radial-gradient(
+                    circle at 70% 30%,
+                    #df55ff,
+                    transparent 25%
+                ),
+                linear-gradient(
+                    135deg,
+                    #4227aa,
+                    #141951
+                );
+        }
+
+        .app-banner::after {
+            content: "▶";
+
+            position: absolute;
+
+            right: 17px;
+            bottom: 17px;
+
+            width: 38px;
+            height: 38px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            border-radius: 50%;
+
+            background: #b84eff;
+
+            font-size: 14px;
+        }
+
+        .banner-title {
+            position: absolute;
+
+            left: 15px;
+            bottom: 18px;
+
+            font-size: 17px;
+
+            font-weight: 900;
+        }
+
+        .app-section-title {
+            margin-top: 22px;
+
+            font-size: 14px;
+
+            font-weight: 800;
+        }
+
+        .movie-list {
+            margin-top: 12px;
+
+            display: flex;
+
+            gap: 8px;
+        }
+
+        .movie-card {
+            flex: 1;
+
+            min-width: 0;
+        }
+
+        .movie-img {
+            height: 115px;
+
+            border-radius: 9px;
+
+            background:
+                linear-gradient(
+                    150deg,
+                    #6432bf,
+                    #ec6c73
+                );
+        }
+
+        .movie-card:nth-child(2) .movie-img {
+            background:
+                linear-gradient(
+                    150deg,
+                    #f08d3f,
+                    #5322a3
+                );
+        }
+
+        .movie-card:nth-child(3) .movie-img {
+            background:
+                linear-gradient(
+                    150deg,
+                    #1d748e,
+                    #3c1f6e
+                );
+        }
+
+        .movie-name {
+            margin-top: 6px;
+
+            color: #d7d9ee;
+
+            font-size: 10px;
+
+            white-space: nowrap;
+
+            overflow: hidden;
+
+            text-overflow: ellipsis;
+        }
+
+        .bottom-nav {
+            position: absolute;
+
+            bottom: 10px;
+
+            left: 12px;
+            right: 12px;
+
+            height: 55px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-around;
+
+            border-radius: 18px;
+
+            background:
+                rgba(10,12,45,.9);
+
+            font-size: 9px;
+
+            color: #9da1c7;
+        }
+
+        .bottom-nav .selected {
+            color: #bf5cff;
+        }
+
+
+        /* =========================
+           Wave
+        ========================== */
+
+        .wave {
+            position: absolute;
+
+            bottom: -1px;
+            left: 0;
+
+            width: 100%;
+            height: 90px;
+
+            background: white;
+
+            clip-path:
+                ellipse(75% 60% at 50% 100%);
+        }
+
+
+        /* =========================
+           Features
+        ========================== */
+
+        .features {
+            padding:
+                80px 20px 100px;
+        }
+
+        .container {
+            width:
+                min(1100px,100%);
+
+            margin: auto;
+        }
+
+        .section-title {
+            text-align: center;
+        }
+
+        .section-title h2 {
+            font-size: 38px;
+
+            font-weight: 900;
+        }
+
+        .section-title h2 span {
+            color: #8b45ee;
+        }
+
+        .section-title p {
+            margin-top: 10px;
+
+            color: #777c9c;
+        }
+
+        .feature-grid {
+            margin-top: 45px;
+
+            display: flex;
+
+            gap: 18px;
+        }
+
+        .feature-card {
+            flex: 1;
+
+            padding: 30px 22px;
+
+            border-radius: 20px;
+
+            border:
+                1px solid #e8e8f5;
+
+            background: white;
+
+            box-shadow:
+                0 15px 40px rgba(40,30,100,.07);
+
+            text-align: center;
+
+            transition: .25s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-7px);
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+
+            margin: auto;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 18px;
+
+            font-size: 28px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #eee7ff,
+                    #fce4ff
+                );
+        }
+
+        .feature-card h3 {
+            margin-top: 18px;
+
+            font-size: 18px;
+        }
+
+        .feature-card p {
+            margin-top: 9px;
+
+            color: #8589a5;
+
+            font-size: 13px;
+
+            line-height: 1.7;
+        }
+
+
+        /* =========================
+           Showcase
+        ========================== */
+
+        .showcase {
+            padding: 70px 20px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #f8f7ff,
+                    #ffffff
+                );
+        }
+
+        .showcase-inner {
+            display: flex;
+
+            align-items: center;
+
+            gap: 70px;
+        }
+
+        .showcase-text {
+            flex: 1;
+        }
+
+        .showcase-text h2 {
+            font-size: 40px;
+
+            line-height: 1.3;
+        }
+
+        .showcase-text h2 span {
+            color: #a043ec;
+        }
+
+        .showcase-text p {
+            margin-top: 20px;
+
+            color: #747894;
+
+            line-height: 2;
+        }
+
+        .showcase-box {
+            flex: 1;
+
+            height: 330px;
+
+            border-radius: 25px;
+
+            position: relative;
+
+            overflow: hidden;
+
+            background:
+                radial-gradient(
+                    circle at 75% 25%,
+                    #e64bff,
+                    transparent 20%
+                ),
+                linear-gradient(
+                    135deg,
+                    #252276,
+                    #791fc0,
+                    #17153f
+                );
+
+            box-shadow:
+                0 25px 60px rgba(75,30,150,.2);
+        }
+
+        .showcase-play {
+            position: absolute;
+
+            top: 50%;
+            left: 50%;
+
+            transform:
+                translate(-50%,-50%);
+
+            width: 70px;
+            height: 70px;
+
+            border-radius: 50%;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            background: white;
+
+            color: #7a3de9;
+
+            font-size: 25px;
+
+            box-shadow:
+                0 10px 30px rgba(0,0,0,.25);
+        }
+
+
+        /* =========================
+           FAQ
+        ========================== */
+
+        .faq {
+            padding:
+                80px 20px 90px;
+
+            background: white;
+        }
+
+        .faq-list {
+            max-width: 800px;
+
+            margin:
+                40px auto 0;
+        }
+
+        .faq-item {
+            padding: 22px 0;
+
+            border-bottom:
+                1px solid #eeeeF7;
+        }
+
+        .faq-item h3 {
+            font-size: 17px;
+
+            color: #22254d;
+        }
+
+        .faq-item p {
+            margin-top: 10px;
+
+            color: #777c9c;
+
+            font-size: 14px;
+
+            line-height: 1.8;
+        }
+
+
+        /* =========================
+           CTA
+        ========================== */
+
+        .cta {
+            padding: 65px 20px;
+
+            background:
+                linear-gradient(
+                    110deg,
+                    #5137ed,
+                    #b33cea,
+                    #7739ef
+                );
+
+            color: white;
+        }
+
+        .cta-inner {
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 30px;
+        }
+
+        .cta-logo {
+            display: flex;
+
+            align-items: center;
+
+            gap: 18px;
+        }
+
+        .cta-logo .logo-icon {
+            width: 70px;
+            height: 70px;
+        }
+
+        .cta-title {
+            font-size: 28px;
+
+            font-weight: 900;
+        }
+
+        .cta-sub {
+            margin-top: 7px;
+
+            font-size: 14px;
+
+            opacity: .8;
+        }
+
+        .cta-btn {
+            padding: 16px 35px;
+
+            border-radius: 35px;
+
+            background: white;
+
+            color: #6938df;
+
+            font-weight: 900;
+
+            box-shadow:
+                0 10px 30px rgba(0,0,0,.15);
+
+            transition: .25s;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-3px);
+        }
+
+
+        /* =========================
+           Footer
+        ========================== */
+
+        .footer {
+            padding: 25px 20px;
+
+            background: #080d2d;
+
+            color: #858bb2;
+
+            text-align: center;
+
+            font-size: 12px;
+        }
+
+        .footer-links {
+            margin-top: 8px;
+
+            display: flex;
+
+            justify-content: center;
+
+            gap: 20px;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+
+        /* =========================
+           Tablet
+        ========================== */
+
+        @media (max-width: 900px) {
+
+            .nav {
+                display: none;
+            }
+
+            .header-inner {
+                width:
+                    calc(100% - 30px);
+            }
+
+            .header-btn {
+                padding:
+                    10px 17px;
+
+                font-size: 12px;
+            }
+
+            .hero {
+                min-height: auto;
+            }
+
+            .hero-inner {
+                min-height: auto;
+
+                padding-top: 120px;
+
+                padding-bottom: 80px;
+
+                flex-direction: column;
+            }
+
+            .hero-content {
+                width: 100%;
+
+                padding-top: 0;
+
+                text-align: center;
+            }
+
+            .hero-title {
+                font-size: 64px;
+
+                letter-spacing: -4px;
+            }
+
+            .hero-en {
+                font-size: 28px;
+            }
+
+            .hero-desc {
+                font-size: 22px;
+            }
+
+            .hero-sub {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .tags {
+                justify-content: center;
+            }
+
+            .download-area {
+                justify-content: center;
+            }
+
+            .qr-area {
+                justify-content: center;
+            }
+
+            .hero-phones {
+                width: 100%;
+
+                height: 570px;
+
+                margin-top: 25px;
+            }
+
+            .phone {
+                width: 230px;
+                height: 480px;
+            }
+
+            .phone-front {
+                transform:
+                    rotate(-4deg)
+                    translate(-30px,0);
+            }
+
+            .phone-back {
+                transform:
+                    rotate(10deg)
+                    translate(75px,15px);
+            }
+
+            .app-banner {
+                height: 135px;
+            }
+
+            .movie-img {
+                height: 90px;
+            }
+
+            .feature-grid {
+                flex-wrap: wrap;
+            }
+
+            .feature-card {
+                flex:
+                    1 1 calc(50% - 10px);
+            }
+
+            .showcase-inner {
+                flex-direction: column;
+
+                gap: 35px;
+            }
+
+            .showcase-text {
+                text-align: center;
+            }
+
+            .showcase-text h2 {
+                font-size: 32px;
+            }
+
+            .showcase-box {
+                width: 100%;
+            }
+
+            .cta-inner {
+                flex-direction: column;
+
+                text-align: center;
+            }
+        }
+
+
+        /* =========================
+           Mobile
+        ========================== */
+
+        @media (max-width: 520px) {
+
+            .header-inner {
+                height: 68px;
+            }
+
+            .logo-icon {
+                width: 42px;
+                height: 42px;
+            }
+
+            .logo-cn {
+                font-size: 18px;
+            }
+
+            .hero-inner {
+                padding-top: 105px;
+            }
+
+            .hero-title {
+                font-size: 56px;
+
+                letter-spacing: -4px;
+            }
+
+            .hero-en {
+                font-size: 25px;
+            }
+
+            .hero-desc {
+                font-size: 20px;
+            }
+
+            .hero-sub {
+                font-size: 14px;
+            }
+
+            .download-area {
+                width: 100%;
+
+                flex-direction: column;
+
+                gap: 12px;
+            }
+
+            .download-btn {
+                width:
+                    min(320px,100%);
+
+                min-width: 0;
+            }
+
+            .qr-area {
+                margin-top: 22px;
+            }
+
+            .hero-phones {
+                height: 510px;
+            }
+
+            .phone {
+                width: 205px;
+
+                height: 440px;
+
+                border-radius: 30px;
+            }
+
+            .phone-front {
+                transform:
+                    rotate(-4deg)
+                    translate(-22px,0);
+            }
+
+            .phone-back {
+                transform:
+                    rotate(10deg)
+                    translate(55px,12px);
+            }
+
+            .app-banner {
+                height: 115px;
+            }
+
+            .movie-img {
+                height: 72px;
+            }
+
+            .feature-card {
+                flex:
+                    1 1 100%;
+            }
+
+            .section-title h2 {
+                font-size: 30px;
+            }
+
+            .showcase-box {
+                height: 240px;
+            }
+
+            .cta-title {
+                font-size: 24px;
+            }
+
+            .cta-logo {
+                flex-direction: column;
+            }
+        }
+
+    </style>
+
+
+    <!-- =========================
+         SEO Structured Data
+    ========================== -->
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "紫可可",
+        "alternateName": "Zikeke",
+        "applicationCategory": "EntertainmentApplication",
+        "operatingSystem": "Android",
+        "url": "https://zikeke.app/",
+        "description": "紫可可 Zikeke影视APP，提供电影、电视剧、综艺、动漫等影视内容。",
+        "downloadUrl": "https://zikeke.app/zikeke.apk",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "CNY"
+        }
+    }
+    </script>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     Header
+========================== -->
+
+<header class="header">
+
+    <div class="header-inner">
+
+        <a href="#" class="logo">
+
+            <!-- Logo -->
+            <svg class="logo-icon"
+                 viewBox="0 0 100 100"
+                 xmlns="http://www.w3.org/2000/svg">
+
+                <defs>
+
+                    <linearGradient
+                        id="logoGradient"
+                        x1="0"
+                        y1="0"
+                        x2="1"
+                        y2="1">
+
+                        <stop
+                            offset="0%"
+                            stop-color="#7B61FF"/>
+
+                        <stop
+                            offset="100%"
+                            stop-color="#E64AFF"/>
+
+                    </linearGradient>
+
+                </defs>
+
+                <rect
+                    x="10"
+                    y="18"
+                    width="80"
+                    height="65"
+                    rx="23"
+                    fill="url(#logoGradient)"/>
+
+                <path
+                    d="M25 18 L31 7 L42 18"
+                    fill="none"
+                    stroke="#fff"
+                    stroke-width="6"
+                    stroke-linecap="round"/>
+
+                <path
+                    d="M58 18 L69 7 L75 20"
+                    fill="none"
+                    stroke="#fff"
+                    stroke-width="6"
+                    stroke-linecap="round"/>
+
+                <rect
+                    x="23"
+                    y="31"
+                    width="54"
+                    height="40"
+                    rx="13"
+                    fill="#10143d"/>
+
+                <polygon
+                    points="44,40 44,62 63,51"
+                    fill="#ff61ed"/>
+
+                <circle
+                    cx="25"
+                    cy="78"
+                    r="4"
+                    fill="#fff"/>
+
+                <circle
+                    cx="75"
+                    cy="78"
+                    r="4"
+                    fill="#fff"/>
+
+            </svg>
+
+
+            <div class="logo-text">
+
+                <div class="logo-cn">
+                    紫可可
+                </div>
+
+                <div class="logo-en">
+                    zikeke.app
+                </div>
+
+            </div>
+
+        </a>
+
+
+        <nav class="nav">
+
+            <a href="#">
+                首页
+            </a>
+
+            <a href="#features">
+                功能特色
+            </a>
+
+            <a href="#movies">
+                影视资源
+            </a>
+
+            <a href="#download">
+                下载APP
+            </a>
+
+            <a href="#faq">
+                常见问题
+            </a>
+
+            <a href="#download"
+               class="header-btn">
+
+                立即下载
+
+            </a>
+
+        </nav>
+
+    </div>
+
+</header>
+
+
+
+<!-- =========================
+     Hero
+========================== -->
+
+<section class="hero">
+
+    <div class="hero-inner">
+
+
+        <div class="hero-content">
+
+
+            <div class="badge">
+                ✦ 紫可可 Zikeke · 影视APP
+            </div>
+
+
+            <h1 class="hero-title">
+                紫可可
+            </h1>
+
+
+            <div class="hero-en">
+                zikeke
+            </div>
+
+
+            <div class="hero-desc">
+                海量影视 · 随心畅看
+            </div>
+
+
+            <div class="tags">
+
+                <div class="tag">
+                    <span class="tag-icon">▶</span>
+                    电影
+                </div>
+
+                <div class="tag">
+                    <span class="tag-icon">▣</span>
+                    电视剧
+                </div>
+
+                <div class="tag">
+                    <span class="tag-icon">☆</span>
+                    综艺
+                </div>
+
+                <div class="tag">
+                    <span class="tag-icon">♢</span>
+                    动漫
+                </div>
+
+            </div>
+
+
+            <p class="hero-sub">
+
+                热门电影 · 最新剧集 · 经典动漫 · 海外剧集
+                <br>
+
+                紫可可 Zikeke，一站式影视体验，高清流畅，快速更新。
+
+            </p>
+
+
+            <!-- =========================
+                 Download
+            ========================== -->
+
+            <div class="download-area">
+
+
+                <!-- Android -->
+
+                <a href="https://zikeke.app/zikeke.apk"
+                   class="download-btn android-btn">
+
+                    <svg class="download-icon"
+                         viewBox="0 0 24 24"
+                         aria-hidden="true">
+
+                        <path
+                            fill="currentColor"
+                            d="M17.523 15.341c-.482 0-.872.39-.872.872s.39.872.872.872.872-.39.872-.872-.39-.872-.872-.872zm-11.046 0c-.482 0-.872.39-.872.872s.39.872.872.872.872-.39.872-.872-.39-.872-.872-.872zM17.82 8.16l1.51-2.61a.31.31 0 0 0-.11-.43.31.31 0 0 0-.43.11l-1.53 2.65a8.42 8.42 0 0 0-10.52 0L5.21 5.23a.31.31 0 0 0-.43-.11.31.31 0 0 0-.11.43l1.51 2.61A8.23 8.23 0 0 0 2.8 14.5h18.4a8.23 8.23 0 0 0-3.38-6.34zM2.8 15.35v3.69c0 .91.74 1.65 1.65 1.65h1.1v1.65c0 .46.37.83.83.83s.83-.37.83-.83v-1.65h5.58v1.65c0 .46.37.83.83.83s.83-.37.83-.83v-1.65h1.1c.91 0 1.65-.74 1.65-1.65v-3.69H2.8z"/>
+                    </svg>
+
+
+                    <div>
+
+                        安卓下载
+
+                        <small>
+                            Android APK
+                        </small>
+
+                    </div>
+
+                </a>
+
+
+
+                <!-- iOS -->
+
+                <div class="download-btn ios-btn">
+
+                    <span class="ios-status">
+                        即将上线
+                    </span>
+
+
+                    <svg class="download-icon apple-icon"
+                         viewBox="0 0 24 24"
+                         aria-hidden="true">
+
+                        <path
+                            fill="currentColor"
+                            d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.39 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.52 4.08zM12.03 7.25C11.88 5.02 13.69 3.18 15.77 3c.29 2.58-2.34 4.5-3.74 4.25z"/>
+                    </svg>
+
+
+                    <div>
+
+                        iOS 下载
+
+                        <small>
+                            App Store
+                        </small>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- QR -->
+
+            <div class="qr-area">
+
+                <div class="qr">
+
+                    <img
+                        src="app.png"
+                        alt="紫可可 Zikeke APP 安卓下载二维码">
+
+                </div>
+
+
+                <div class="qr-text">
+
+                    <strong>
+                        扫码下载紫可可 APP
+                    </strong>
+
+                    <br>
+
+                    手机扫描二维码
+
+                    <br>
+
+                    即可安装紫可可 Android 版本
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- =========================
+             Phones
+        ========================== -->
+
+        <div class="hero-phones">
+
+
+            <!-- Back Phone -->
+
+            <div class="phone phone-back">
+
+                <div class="phone-notch"></div>
+
+                <div class="phone-screen">
+
+                    <div class="app-header">
+
+                        <span>
+                            9:41
+                        </span>
+
+                        <span>
+                            ▣
+                        </span>
+
+                    </div>
+
+
+                    <div class="app-search">
+                        🔍 搜索电影、电视剧、演员...
+                    </div>
+
+
+                    <div class="app-menu">
+
+                        <span class="active">
+                            全部
+                        </span>
+
+                        <span>
+                            动作
+                        </span>
+
+                        <span>
+                            喜剧
+                        </span>
+
+                        <span>
+                            科幻
+                        </span>
+
+                    </div>
+
+
+                    <div class="app-section-title">
+                        热门影视
+                    </div>
+
+
+                    <div class="movie-list">
+
+                        <div class="movie-card">
+
+                            <div class="movie-img"></div>
+
+                            <div class="movie-name">
+                                热门电影
+                            </div>
+
+                        </div>
+
+
+                        <div class="movie-card">
+
+                            <div class="movie-img"></div>
+
+                            <div class="movie-name">
+                                最新剧集
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Front Phone -->
+
+            <div class="phone phone-front">
+
+                <div class="phone-notch"></div>
+
+                <div class="phone-screen">
+
+                    <div class="app-header">
+
+                        <span>
+                            紫可可
+                        </span>
+
+                        <span>
+                            ⌁
+                        </span>
+
+                    </div>
+
+
+                    <div class="app-search">
+                        🔍 搜索电影、电视剧、演员...
+                    </div>
+
+
+                    <div class="app-menu">
+
+                        <span class="active">
+                            推荐
+                        </span>
+
+                        <span>
+                            电影
+                        </span>
+
+                        <span>
+                            电视剧
+                        </span>
+
+                        <span>
+                            综艺
+                        </span>
+
+                        <span>
+                            动漫
+                        </span>
+
+                    </div>
+
+
+                    <div class="app-banner">
+
+                        <div class="banner-title">
+                            热门新番
+                        </div>
+
+                    </div>
+
+
+                    <div class="app-section-title">
+                        正在热播
+                    </div>
+
+
+                    <div class="movie-list">
+
+                        <div class="movie-card">
+
+                            <div class="movie-img"></div>
+
+                            <div class="movie-name">
+                                热门剧集
+                            </div>
+
+                        </div>
+
+
+                        <div class="movie-card">
+
+                            <div class="movie-img"></div>
+
+                            <div class="movie-name">
+                                动漫电影
+                            </div>
+
+                        </div>
+
+
+                        <div class="movie-card">
+
+                            <div class="movie-img"></div>
+
+                            <div class="movie-name">
+                                最新电影
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="bottom-nav">
+
+                        <span class="selected">
+                            ●
+                            <br>
+                            首页
+                        </span>
+
+                        <span>
+                            ▦
+                            <br>
+                            分类
+                        </span>
+
+                        <span>
+                            ◉
+                            <br>
+                            发现
+                        </span>
+
+                        <span>
+                            ♙
+                            <br>
+                            我的
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="wave"></div>
+
+</section>
+
+
+
+<!-- =========================
+     Features
+========================== -->
+
+<section class="features"
+         id="features">
+
+    <div class="container">
+
+
+        <div class="section-title">
+
+            <h2>
+                为什么选择
+                <span>
+                    紫可可？
+                </span>
+            </h2>
+
+            <p>
+                简洁 · 流畅 · 高清 · 好用
+            </p>
+
+        </div>
+
+
+        <div class="feature-grid">
+
+
+            <div class="feature-card">
+
+                <div class="feature-icon">
+                    💎
+                </div>
+
+                <h3>
+                    高清画质
+                </h3>
+
+                <p>
+                    支持多种清晰度，
+                    带来更加舒适的观影体验。
+                </p>
+
+            </div>
+
+
+            <div class="feature-card">
+
+                <div class="feature-icon">
+                    🚀
+                </div>
+
+                <h3>
+                    极速播放
+                </h3>
+
+                <p>
+                    优化视频加载体验，
+                    让影视内容播放更加流畅。
+                </p>
+
+            </div>
+
+
+            <div class="feature-card">
+
+                <div class="feature-icon">
+                    🔥
+                </div>
+
+                <h3>
+                    内容更新
+                </h3>
+
+                <p>
+                    热门影视内容持续更新，
+                    轻松发现最新影视作品。
+                </p>
+
+            </div>
+
+
+            <div class="feature-card">
+
+                <div class="feature-icon">
+                    🛡️
+                </div>
+
+                <h3>
+                    简洁体验
+                </h3>
+
+                <p>
+                    简洁清爽的界面设计，
+                    快速找到喜欢的影视内容。
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     Movies
+========================== -->
+
+<section class="showcase"
+         id="movies">
+
+    <div class="container showcase-inner">
+
+
+        <div class="showcase-text">
+
+            <h2>
+
+                好电影
+                <br>
+
+                <span>
+                    就在紫可可
+                </span>
+
+            </h2>
+
+
+            <p>
+
+                电影、电视剧、综艺、动漫等
+                多种影视内容集中展示。
+
+                <br>
+
+                简洁界面，快速找到你想看的内容。
+
+                <br>
+
+                紫可可 Zikeke，让影视观看更加简单。
+
+            </p>
+
+        </div>
+
+
+        <div class="showcase-box">
+
+            <div class="showcase-play">
+                ▶
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     FAQ
+========================== -->
+
+<section class="faq"
+         id="faq">
+
+    <div class="container">
+
+
+        <div class="section-title">
+
+            <h2>
+                常见问题
+            </h2>
+
+            <p>
+                关于紫可可 Zikeke APP
+            </p>
+
+        </div>
+
+
+        <div class="faq-list">
+
+
+            <div class="faq-item">
+
+                <h3>
+                    紫可可是什么？
+                </h3>
+
+                <p>
+                    紫可可 Zikeke 是一款影视类应用，
+                    提供电影、电视剧、综艺、动漫等内容的浏览与观看体验。
+                </p>
+
+            </div>
+
+
+            <div class="faq-item">
+
+                <h3>
+                    紫可可支持哪些设备？
+                </h3>
+
+                <p>
+                    当前提供 Android 版本下载，
+                    iOS 版本正在开发和准备中，后续将在 App Store 发布。
+                </p>
+
+            </div>
+
+
+            <div class="faq-item">
+
+                <h3>
+                    Android 怎么下载安装？
+                </h3>
+
+                <p>
+                    使用 Android 手机打开本页面，
+                    点击「安卓下载」即可下载安装紫可可 APP。
+                </p>
+
+            </div>
+
+
+            <div class="faq-item">
+
+                <h3>
+                    iOS 什么时候可以下载？
+                </h3>
+
+                <p>
+                    iOS 版本目前暂未正式发布，
+                    上线 App Store 后我们会在官方网站同步更新下载入口。
+                </p>
+
+            </div>
+
+
+            <div class="faq-item">
+
+                <h3>
+                    紫可可官方网站是什么？
+                </h3>
+
+                <p>
+                    紫可可官方网站为 zikeke.app，
+                    用户可以通过官方网站获取最新版本信息。
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     CTA
+========================== -->
+
+<section class="cta"
+         id="download">
+
+    <div class="container cta-inner">
+
+
+        <div class="cta-logo">
+
+
+            <svg class="logo-icon"
+                 viewBox="0 0 100 100"
+                 xmlns="http://www.w3.org/2000/svg">
+
+                <defs>
+
+                    <linearGradient
+                        id="ctaGradient"
+                        x1="0"
+                        y1="0"
+                        x2="1"
+                        y2="1">
+
+                        <stop
+                            offset="0%"
+                            stop-color="#ffffff"/>
+
+                        <stop
+                            offset="100%"
+                            stop-color="#eadcff"/>
+
+                    </linearGradient>
+
+                </defs>
+
+
+                <rect
+                    x="10"
+                    y="18"
+                    width="80"
+                    height="65"
+                    rx="23"
+                    fill="url(#ctaGradient)"/>
+
+
+                <path
+                    d="M25 18 L31 7 L42 18"
+                    fill="none"
+                    stroke="#ffffff"
+                    stroke-width="6"
+                    stroke-linecap="round"/>
+
+
+                <path
+                    d="M58 18 L69 7 L75 20"
+                    fill="none"
+                    stroke="#ffffff"
+                    stroke-width="6"
+                    stroke-linecap="round"/>
+
+
+                <rect
+                    x="23"
+                    y="31"
+                    width="54"
+                    height="40"
+                    rx="13"
+                    fill="#6037d9"/>
+
+
+                <polygon
+                    points="44,40 44,62 63,51"
+                    fill="#e84bff"/>
+
+
+                <circle
+                    cx="25"
+                    cy="78"
+                    r="4"
+                    fill="#ffffff"/>
+
+
+                <circle
+                    cx="75"
+                    cy="78"
+                    r="4"
+                    fill="#ffffff"/>
+
+            </svg>
+
+
+            <div>
+
+                <div class="cta-title">
+                    全网影视 · 触手可及
+                </div>
+
+                <div class="cta-sub">
+                    立即下载紫可可 APP，开启你的影视时光
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <a href="https://zikeke.app/zikeke.apk"
+           class="cta-btn">
+
+            ↓
+            &nbsp;
+            安卓下载
+
+        </a>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     Footer
+========================== -->
+
+<footer class="footer">
+
+    © 2026 紫可可 Zikeke.app
+
+    <div class="footer-links">
+
+        <a href="#">
+            联系我们
+        </a>
+
+        <a href="#">
+            隐私政策
+        </a>
+
+        <a href="#">
+            用户协议
+        </a>
+
+    </div>
+
+</footer>
+
+
+
+<!-- =========================
+     FAQ Structured Data
+========================== -->
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+        {
+            "@type": "Question",
+            "name": "紫可可是什么？",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "紫可可 Zikeke 是一款影视类应用，提供电影、电视剧、综艺、动漫等内容的浏览与观看体验。"
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "紫可可支持哪些设备？",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "当前提供 Android 版本下载，iOS 版本正在开发和准备中。"
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Android 怎么下载安装？",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "使用 Android 手机打开紫可可官方网站，点击安卓下载即可下载安装紫可可 APP。"
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "iOS 什么时候可以下载？",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "iOS 版本目前暂未正式发布，上线 App Store 后会在官方网站同步更新下载入口。"
+            }
+        }
+    ]
+}
+</script>
+
+
+</body>
+</html>
