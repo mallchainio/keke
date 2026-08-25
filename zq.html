@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>看电影赚钱 - 即将上线</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      background: #0f0f1a;
+      color: #fff;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ===== Banner ===== */
+    .banner {
+      position: relative;
+      padding: 60px 20px 50px;
+      text-align: center;
+      overflow: hidden;
+    }
+    .banner-bg {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+      z-index: 0;
+    }
+    .banner-bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 30% 50%, rgba(233,69,96,0.15) 0%, transparent 60%),
+                  radial-gradient(circle at 70% 30%, rgba(0,212,170,0.1) 0%, transparent 50%);
+    }
+    .banner-content {
+      position: relative;
+      z-index: 1;
+    }
+    .badge {
+      display: inline-block;
+      background: linear-gradient(90deg, #e94560, #ff6b6b);
+      padding: 6px 16px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 16px;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+    .title {
+      font-size: 32px;
+      font-weight: 800;
+      margin-bottom: 10px;
+      background: linear-gradient(90deg, #fff, #ffd700);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .subtitle {
+      font-size: 15px;
+      color: #a0a0b0;
+      margin-bottom: 24px;
+      line-height: 1.6;
+    }
+
+    /* ===== 按钮 ===== */
+    .btn-primary {
+      background: linear-gradient(90deg, #e94560, #ff6b6b);
+      color: #fff;
+      border: none;
+      padding: 14px 36px;
+      border-radius: 28px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 20px rgba(233,69,96,0.4);
+      -webkit-tap-highlight-color: transparent;
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 28px rgba(233,69,96,0.5);
+    }
+    .btn-primary:active {
+      transform: translateY(0);
+    }
+    .btn-large {
+      padding: 16px 48px;
+      font-size: 17px;
+      width: 90%;
+      max-width: 340px;
+    }
+
+    /* ===== Section ===== */
+    .section {
+      padding: 36px 16px;
+    }
+    .section-dark {
+      background: rgba(255,255,255,0.03);
+    }
+    .section-title {
+      font-size: 20px;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 24px;
+      color: #fff;
+    }
+
+    /* ===== Features - Flex 布局 ===== */
+    .features {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+    }
+    .feature-card {
+      flex: 1 1 calc(50% - 12px);
+      min-width: 140px;
+      max-width: 180px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 16px;
+      padding: 20px 14px;
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+    .feature-card:hover {
+      background: rgba(255,255,255,0.08);
+      transform: translateY(-4px);
+      border-color: rgba(233,69,96,0.3);
+    }
+    .feature-card .icon {
+      font-size: 36px;
+      margin-bottom: 10px;
+    }
+    .feature-card h3 {
+      font-size: 15px;
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: #fff;
+    }
+    .feature-card p {
+      font-size: 12px;
+      color: #8888a0;
+      line-height: 1.5;
+    }
+
+    /* ===== Income Flow - Flex 布局 ===== */
+    .income-flow {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+    .flow-step {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      padding: 12px 10px;
+      background: rgba(255,255,255,0.05);
+      border-radius: 12px;
+      min-width: 70px;
+    }
+    .step-num {
+      width: 32px;
+      height: 32px;
+      background: linear-gradient(135deg, #e94560, #ff6b6b);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      font-weight: 700;
+    }
+    .flow-step span {
+      font-size: 12px;
+      color: #ccc;
+    }
+    .arrow {
+      font-size: 18px;
+      color: #e94560;
+      font-weight: bold;
+    }
+
+    /* ===== Countdown - Flex 布局 ===== */
+    .countdown {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+    }
+    .time-box {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 12px;
+      padding: 14px 18px;
+      min-width: 64px;
+    }
+    .time-box span {
+      font-size: 28px;
+      font-weight: 800;
+      color: #ffd700;
+      font-variant-numeric: tabular-nums;
+    }
+    .time-box small {
+      font-size: 11px;
+      color: #8888a0;
+      margin-top: 4px;
+    }
+
+    /* ===== Footer ===== */
+    .footer {
+      padding: 30px 16px 50px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 14px;
+    }
+    .footer-note {
+      font-size: 13px;
+      color: #666680;
+    }
+
+    /* ===== Modal ===== */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.7);
+      z-index: 100;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .modal-overlay.active {
+      display: flex;
+    }
+    .modal {
+      background: #1a1a2e;
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 20px;
+      padding: 32px 24px;
+      text-align: center;
+      max-width: 320px;
+      width: 100%;
+      position: relative;
+      animation: modalIn 0.3s ease;
+    }
+    @keyframes modalIn {
+      from { opacity: 0; transform: scale(0.9); }
+      to { opacity: 1; transform: scale(1); }
+    }
+    .modal h3 {
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+    .modal p {
+      font-size: 14px;
+      color: #a0a0b0;
+      margin-bottom: 20px;
+      line-height: 1.5;
+    }
+    .modal-close {
+      position: absolute;
+      top: 12px;
+      right: 16px;
+      background: none;
+      border: none;
+      color: #888;
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    /* ===== 响应式适配 ===== */
+    @media (min-width: 480px) {
+      .title { font-size: 40px; }
+      .feature-card { flex: 1 1 calc(25% - 12px); }
+      .income-flow { gap: 12px; }
+      .flow-step { padding: 16px 18px; min-width: 90px; }
+      .time-box { padding: 18px 24px; min-width: 80px; }
+      .time-box span { font-size: 36px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 顶部 Banner -->
+  <header class="banner">
+    <div class="banner-bg"></div>
+    <div class="banner-content">
+      <span class="badge">🔥 即将上线</span>
+      <h1 class="title">看电影 赚收益</h1>
+      <p class="subtitle">边看电影边赚钱，娱乐收益两不误</p>
+      <button class="btn-primary" onclick="openModal()">立即预约</button>
+    </div>
+  </header>
+
+  <!-- 功能亮点 -->
+  <section class="section">
+    <h2 class="section-title">✨ 核心亮点</h2>
+    <div class="features">
+      <div class="feature-card">
+        <div class="icon">🎬</div>
+        <h3>海量片源</h3>
+        <p>热门电影、经典剧集，想看就看</p>
+      </div>
+      <div class="feature-card">
+        <div class="icon">💰</div>
+        <h3>边看边赚</h3>
+        <p>观看即得积分，积分可提现</p>
+      </div>
+      <div class="feature-card">
+        <div class="icon">🚀</div>
+        <h3>极速到账</h3>
+        <p>收益秒到账，提现无门槛</p>
+      </div>
+      <div class="feature-card">
+        <div class="icon">🎁</div>
+        <h3>新人福利</h3>
+        <p>注册即送大礼包，首看翻倍</p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- 弹窗 -->
+  <div class="modal-overlay" id="modal">
+    <div class="modal">
+      <button class="modal-close" onclick="closeModal()">×</button>
+      <h3>🎉 预约成功</h3>
+      <p>我们将在上线当天第一时间通知您！</p>
+      <button class="btn-primary" onclick="closeModal()">我知道了</button>
+    </div>
+  </div>
+
+  <script>
+    // 倒计时：设定为 7 天后上线
+    const targetDate = new Date();
+    targetDate.setDate(targetDate.getDate() + 7);
+    targetDate.setHours(0, 0, 0, 0);
+
+    function updateCountdown() {
+      const now = new Date();
+      const diff = targetDate - now;
+      if (diff <= 0) return;
+
+      const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const h = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const m = Math.floor((diff / (1000 * 60)) % 60);
+      const s = Math.floor((diff / 1000) % 60);
+
+      document.getElementById('days').textContent = String(d).padStart(2, '0');
+      document.getElementById('hours').textContent = String(h).padStart(2, '0');
+      document.getElementById('minutes').textContent = String(m).padStart(2, '0');
+      document.getElementById('seconds').textContent = String(s).padStart(2, '0');
+    }
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+
+    function openModal() {
+      document.getElementById('modal').classList.add('active');
+    }
+    function closeModal() {
+      document.getElementById('modal').classList.remove('active');
+    }
+    document.getElementById('modal').addEventListener('click', function(e) {
+      if (e.target === this) closeModal();
+    });
+  </script>
+
+</body>
+</html>
