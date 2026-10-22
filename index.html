@@ -812,6 +812,93 @@
         .delay-3 { animation-delay: 0.3s; }
         .delay-4 { animation-delay: 0.4s; }
 
+
+        /* ===== Social Links ===== */
+        .social-grid {
+            display: flex;
+            gap: 24px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .social-card {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            min-width: 260px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 24px 28px;
+            transition: var(--transition);
+        }
+
+        .social-card:hover {
+            background: var(--bg-card-hover);
+            transform: translateY(-4px);
+            border-color: var(--primary);
+            box-shadow: var(--shadow);
+        }
+
+        .social-icon {
+            width: 52px;
+            height: 52px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            font-weight: 800;
+            flex-shrink: 0;
+        }
+
+        .social-icon.twitter { background: rgba(29, 161, 242, 0.15); color: #1da1f2; }
+        .social-icon.telegram { background: rgba(42, 171, 238, 0.15); color: #2aabee; }
+        .social-icon.debox { background: rgba(124, 58, 237, 0.2); color: var(--primary-light); }
+
+        .social-name {
+            font-size: 1.05rem;
+            font-weight: 700;
+        }
+
+        .social-desc {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .hero-socials {
+            display: flex;
+            gap: 12px;
+            margin-top: 28px;
+        }
+
+        .hero-social-btn {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            font-weight: 800;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            color: var(--text-muted);
+            transition: var(--transition);
+        }
+
+        .hero-social-btn:hover {
+            background: var(--primary);
+            color: #fff;
+            border-color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            .social-card { min-width: 100%; }
+            .hero-socials { justify-content: center; }
+        }
+
         /* ===== Responsive ===== */
         @media (max-width: 1024px) {
             .hero h1 {
@@ -934,6 +1021,7 @@
         }
     </style>
 <base target="_blank">
+<base target="_blank">
 </head>
 <body>
 
@@ -949,6 +1037,7 @@
                     <a href="#categories" class="nav-link">影视分类</a>
                     <a href="#features" class="nav-link">功能特色</a>
                     <a href="#content" class="nav-link">影视推荐</a>
+                    <a href="#social" class="nav-link">社区</a>
                     <a href="#faq" class="nav-link">常见问题</a>
                     <a href="/zikeke.apk" class="btn btn-primary" style="padding:10px 24px;font-size:0.9rem;">立即下载</a>
                 </div>
@@ -962,6 +1051,7 @@
         <a href="#categories" onclick="toggleMenu()">影视分类</a>
         <a href="#features" onclick="toggleMenu()">功能特色</a>
         <a href="#content" onclick="toggleMenu()">影视推荐</a>
+        <a href="#social" onclick="toggleMenu()">社区</a>
         <a href="#faq" onclick="toggleMenu()">常见问题</a>
         <a href="/zikeke.apk" onclick="toggleMenu()">立即下载</a>
     </div>
@@ -986,6 +1076,11 @@
                             <span>⬇</span> 安卓下载
                         </a>
                         <a href="#content" class="btn btn-outline btn-lg">了解更多</a>
+                    </div>
+                    <div class="hero-socials animate delay-4">
+                        <a href="https://x.com/zikeke_app" class="hero-social-btn" aria-label="推特 X" title="推特 X">𝕏</a>
+                        <a href="https://t.me/zikeke_app" class="hero-social-btn" aria-label="Telegram" title="Telegram">✈</a>
+                        <a href="https://debox.pro/zikeke" class="hero-social-btn" aria-label="DeBox" title="DeBox">D</a>
                     </div>
                 </div>
                 <div class="hero-qr animate delay-4">
@@ -1194,6 +1289,40 @@
         </div>
     </section>
 
+
+    <!-- Social Links Section -->
+    <section class="section" id="social">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="section-title">加入紫可可社区</h2>
+                <p class="section-subtitle">关注官方社区，第一时间获取最新版本、影视资源和福利活动</p>
+            </div>
+            <div class="social-grid">
+                <a href="https://x.com/zikeke_app" class="social-card">
+                    <div class="social-icon twitter">𝕏</div>
+                    <div>
+                        <div class="social-name">推特 X</div>
+                        <div class="social-desc">@zikeke_app · 关注官方动态</div>
+                    </div>
+                </a>
+                <a href="https://t.me/zikeke_app" class="social-card">
+                    <div class="social-icon telegram">✈</div>
+                    <div>
+                        <div class="social-name">Telegram</div>
+                        <div class="social-desc">@zikeke_app · 加入官方群组</div>
+                    </div>
+                </a>
+                <a href="https://debox.pro/zikeke" class="social-card">
+                    <div class="social-icon debox">D</div>
+                    <div>
+                        <div class="social-name">DeBox</div>
+                        <div class="social-desc">@zikeke · Web3 社区互动</div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
     <!-- CTA Section -->
     <section class="section cta-section">
         <div class="container text-center">
@@ -1231,6 +1360,12 @@
                         <a href="#content">影视推荐</a>
                     </div>
                     <div class="footer-col">
+                        <h4>社区</h4>
+                        <a href="https://x.com/zikeke_app">推特 X</a>
+                        <a href="https://t.me/zikeke_app">Telegram</a>
+                        <a href="https://debox.pro/zikeke">DeBox</a>
+                    </div>
+                    <div class="footer-col">
                         <h4>下载安装</h4>
                         <a href="/zikeke.apk">Android下载</a>
                         <a href="#faq">iOS版本</a>
@@ -1240,6 +1375,11 @@
             </div>
             <div class="footer-bottom">
                 <p>© 2026 紫可可 Zikeke · zikeke.app · 让影视观看更加简单</p>
+                <p style="margin-top:8px;">
+                    <a href="https://x.com/zikekeapp" style="color:var(--text-muted);margin:0 8px;">𝕏 推特</a> ·
+                    <a href="https://t.me/zikekeapp" style="color:var(--text-muted);margin:0 8px;">✈ Telegram</a> ·
+                    <a href="https://debox.pro/zikeke" style="color:var(--text-muted);margin:0 8px;">D DeBox</a>
+                </p>
             </div>
         </div>
     </footer>
