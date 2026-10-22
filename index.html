@@ -856,15 +856,8 @@
         .social-icon.telegram { background: rgba(42, 171, 238, 0.15); color: #2aabee; }
         .social-icon.debox { background: rgba(124, 58, 237, 0.2); color: var(--primary-light); }
 
-        .social-name {
-            font-size: 1.05rem;
-            font-weight: 700;
-        }
-
-        .social-desc {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-        }
+        .social-name { font-size: 1.05rem; font-weight: 700; }
+        .social-desc { font-size: 0.85rem; color: var(--text-muted); }
 
         .hero-socials {
             display: flex;
@@ -897,6 +890,111 @@
         @media (max-width: 768px) {
             .social-card { min-width: 100%; }
             .hero-socials { justify-content: center; }
+        }
+
+
+        /* ===== Contract Card ===== */
+        .contract-card {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-top: 24px;
+            padding: 16px 20px;
+            background: rgba(247, 147, 26, 0.08);
+            border: 1px solid rgba(247, 147, 26, 0.35);
+            border-radius: var(--radius);
+            max-width: 560px;
+            transition: var(--transition);
+        }
+
+        .contract-card:hover {
+            border-color: #f7931a;
+            box-shadow: 0 4px 24px rgba(247, 147, 26, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .contract-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, #f7931a 0%, #f0b90b 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            font-weight: 900;
+            color: #1e1e1e;
+            flex-shrink: 0;
+        }
+
+        .contract-info { flex: 1; min-width: 0; }
+
+        .contract-label {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-bottom: 2px;
+        }
+
+        .contract-label strong { color: #f0b90b; }
+
+        .contract-address {
+            font-family: "SF Mono", "JetBrains Mono", Consolas, monospace;
+            font-size: 0.85rem;
+            color: var(--text);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            cursor: pointer;
+        }
+
+        .copy-btn {
+            flex-shrink: 0;
+            padding: 8px 18px;
+            border-radius: 50px;
+            border: 1px solid #f0b90b;
+            background: transparent;
+            color: #f0b90b;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            white-space: nowrap;
+        }
+
+        .copy-btn:hover { background: #f0b90b; color: #1e1e1e; }
+
+        .copy-btn.copied {
+            background: #22c55e;
+            border-color: #22c55e;
+            color: #fff;
+        }
+
+        .copy-toast {
+            position: fixed;
+            bottom: 32px;
+            left: 50%;
+            transform: translateX(-50%) translateY(20px);
+            background: #22c55e;
+            color: #fff;
+            padding: 10px 24px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            opacity: 0;
+            pointer-events: none;
+            transition: var(--transition);
+            z-index: 2000;
+            box-shadow: 0 4px 20px rgba(34, 197, 94, 0.4);
+        }
+
+        .copy-toast.show {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        @media (max-width: 768px) {
+            .contract-card { margin: 24px auto 0; }
+            .copy-btn { padding: 6px 14px; font-size: 0.8rem; }
         }
 
         /* ===== Responsive ===== */
@@ -1069,7 +1167,7 @@
                         一站式高清影视体验
                     </h1>
                     <p class="hero-desc animate delay-2">
-                        紫可可Zikeke是一款免费高清影视APP，提供电影、电视剧、综艺、动漫等海量影视内容。极速播放、每日更新、界面简洁，支持Android下载安装，iOS版本即将上线。立即下载紫可可APP，开启畅快追剧体验！我们唯一的bsc链的 ZKK代币合约 0x9f26d65b44438ec1a9ec85ea88737b04b31affff
+                        紫可可Zikeke是一款免费高清影视APP，提供电影、电视剧、综艺、动漫等海量影视内容。极速播放、每日更新、界面简洁，支持Android下载安装，iOS版本即将上线。立即下载紫可可APP，开启畅快追剧体验！
                     </p>
                     <div class="hero-btns animate delay-3">
                         <a href="/zikeke.apk" class="btn btn-primary btn-lg">
@@ -1081,6 +1179,14 @@
                         <a href="https://x.com/zikekeapp" class="hero-social-btn" aria-label="推特 X" title="推特 X">𝕏</a>
                         <a href="https://t.me/zikekeapp" class="hero-social-btn" aria-label="Telegram" title="Telegram">✈</a>
                         <a href="https://m.debox.pro/group?id=ymorh9pq&code=mdufye43" class="hero-social-btn" aria-label="DeBox" title="DeBox">D</a>
+                    </div>
+                    <div class="contract-card animate delay-4" id="contractCard">
+                        <div class="contract-icon">B</div>
+                        <div class="contract-info">
+                            <div class="contract-label"><strong>ZKK</strong> · BSC 链唯一官方代币合约</div>
+                            <div class="contract-address" id="contractAddress" title="点击复制合约地址">0x9f26d65b44438ec1a9ec85ea88737b04b31affff</div>
+                        </div>
+                        <button class="copy-btn" onclick="copyContract(event)">复制</button>
                     </div>
                 </div>
                 <div class="hero-qr animate delay-4">
@@ -1279,6 +1385,14 @@
                 </article>
                 <article class="faq-item">
                     <div class="faq-question">
+                        <span>ZKK 代币合约地址是什么？</span>
+                    </div>
+                    <div class="faq-answer">
+                        紫可可在BSC链上的代币 ZKK 合约：0x9f26d65b44438ec1a9ec85ea88737b04b31affff。在首页点击合约卡片即可一键复制，请注意核对地址谨防假冒。
+                    </div>
+                </article>
+                <article class="faq-item">
+                    <div class="faq-question">
                         <span>紫可可官方网站是什么？</span>
                     </div>
                     <div class="faq-answer">
@@ -1302,7 +1416,7 @@
                     <div class="social-icon twitter">𝕏</div>
                     <div>
                         <div class="social-name">推特 X</div>
-                        <div class="social-desc">@zikeke_app · 关注官方动态</div>
+                        <div class="social-desc">@zikekeapp · 关注官方动态</div>
                     </div>
                 </a>
                 <a href="https://t.me/zikekeapp" class="social-card">
@@ -1316,7 +1430,7 @@
                     <div class="social-icon debox">D</div>
                     <div>
                         <div class="social-name">DeBox</div>
-                        <div class="social-desc">@zikeke · Web3 社区互动</div>
+                        <div class="social-desc">紫可可官方群组 · Web3 社区互动</div>
                     </div>
                 </a>
             </div>
@@ -1384,7 +1498,56 @@
         </div>
     </footer>
 
+    <div class="copy-toast" id="copyToast">✓ 合约地址已复制</div>
+
     <script>
+        var CONTRACT_ADDR = '0x9f26d65b44438ec1a9ec85ea88737b04b31affff';
+
+        function copyContract(e) {
+            e.stopPropagation();
+            doCopy(CONTRACT_ADDR, e.target);
+        }
+
+        function doCopy(text, btn) {
+            var finish = function() {
+                if (btn && btn.classList) {
+                    btn.classList.add('copied');
+                    var old = btn.textContent;
+                    btn.textContent = '已复制 ✓';
+                    setTimeout(function() { btn.classList.remove('copied'); btn.textContent = old; }, 2000);
+                }
+                var toast = document.getElementById('copyToast');
+                toast.classList.add('show');
+                setTimeout(function() { toast.classList.remove('show'); }, 2000);
+            };
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(text).then(finish).catch(function() { fallbackCopy(text); finish(); });
+            } else {
+                fallbackCopy(text);
+                finish();
+            }
+        }
+
+        function fallbackCopy(text) {
+            var ta = document.createElement('textarea');
+            ta.value = text;
+            ta.style.position = 'fixed';
+            ta.style.opacity = '0';
+            document.body.appendChild(ta);
+            ta.select();
+            try { document.execCommand('copy'); } catch (err) {}
+            document.body.removeChild(ta);
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            var addr = document.getElementById('contractAddress');
+            if (addr) {
+                addr.addEventListener('click', function() {
+                    doCopy(CONTRACT_ADDR, document.querySelector('#contractCard .copy-btn'));
+                });
+            }
+        });
+
         function toggleMenu() {
             document.getElementById('mobileMenu').classList.toggle('active');
         }
