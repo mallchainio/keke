@@ -1,0 +1,365 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>公告中心</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 16px;
+    background: #f5f6fa;
+    color: #25283a;
+    font-family: Arial, "Microsoft YaHei", sans-serif;
+}
+
+.container {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.header {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 20px;
+    background: linear-gradient(135deg, #7139d8, #a16af5);
+    color: #fff;
+    border-radius: 14px;
+}
+
+.header-title {
+    font-size: 23px;
+    font-weight: bold;
+}
+
+.header-desc {
+    font-size: 13px;
+    opacity: 0.85;
+}
+
+.notice-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.notice-item {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 17px;
+    background: #fff;
+    border-radius: 12px;
+    border: 1px solid #ececf3;
+    box-shadow: 0 3px 12px rgba(30, 20, 60, 0.035);
+}
+
+.notice-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.notice-title {
+    flex: 1;
+    min-width: 0;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 1.6;
+    overflow-wrap: anywhere;
+}
+
+.notice-tag {
+    flex-shrink: 0;
+    padding: 3px 8px;
+    color: #7545d8;
+    background: #f1eaff;
+    font-size: 12px;
+    border-radius: 5px;
+}
+
+.notice-date {
+    font-size: 12px;
+    color: #999;
+}
+
+.notice-image {
+    display: block;
+    width: 100%;
+    max-height: 360px;
+    object-fit: contain;
+    border-radius: 9px;
+    background: #f7f7fa;
+}
+
+.notice-content {
+    font-size: 14px;
+    line-height: 1.9;
+    color: #626578;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+}
+
+.notice-content.collapsed {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    overflow: hidden;
+}
+
+.notice-bottom {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding-top: 4px;
+    border-top: 1px solid #f0f0f5;
+}
+
+.expand-btn {
+    border: 0;
+    background: transparent;
+    color: #7545d8;
+    font-size: 13px;
+    padding: 6px 0 6px 12px;
+    cursor: pointer;
+}
+
+.expand-btn:active {
+    opacity: 0.7;
+}
+
+.state-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 45px 15px;
+    color: #999;
+    background: #fff;
+    border-radius: 12px;
+    font-size: 14px;
+    text-align: center;
+}
+
+@media (min-width: 700px) {
+    body {
+        padding: 28px 20px;
+    }
+
+    .header {
+        padding: 26px;
+    }
+
+    .notice-item {
+        padding: 22px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="header">
+        <div class="header-title">公告中心</div>
+        <div class="header-desc">了解最新公告、平台动态与活动信息</div>
+    </div>
+
+    <div id="noticeList" class="notice-list">
+        <div class="state-box">正在加载公告...</div>
+    </div>
+
+</div>
+
+<script>
+// 修改成你的 JSON 接口地址
+var JSON_URL = 'https://apidata.zikeke.app/notice.json';
+
+// 默认只显示 3 行
+var COLLAPSED_LINES = 3;
+
+function createElement(tag, className, text) {
+    var el = document.createElement(tag);
+
+    if (className) {
+        el.className = className;
+    }
+
+    if (text !== undefined && text !== null) {
+        el.textContent = String(text);
+    }
+
+    return el;
+}
+
+// 仅允许 HTTP / HTTPS 图片地址
+function validImageUrl(url) {
+    if (typeof url !== 'string' || !url.trim()) {
+        return false;
+    }
+
+    try {
+        var parsed = new URL(url, window.location.href);
+        return parsed.protocol === 'http:' ||
+               parsed.protocol === 'https:';
+    } catch (e) {
+        return false;
+    }
+}
+
+function createNotice(item) {
+    var card = createElement('div', 'notice-item');
+
+    // 标题和标签
+    var top = createElement('div', 'notice-top');
+    var title = createElement(
+        'div',
+        'notice-title',
+        item.title || '未命名公告'
+    );
+
+    top.appendChild(title);
+
+    if (item.tag) {
+        top.appendChild(
+            createElement('span', 'notice-tag', item.tag)
+        );
+    }
+
+    card.appendChild(top);
+
+    // 发布时间
+    if (item.time || item.date) {
+        card.appendChild(
+            createElement('div', 'notice-date', item.time || item.date)
+        );
+    }
+
+    // 有图片地址才创建图片元素
+    var imageUrl = item.image || item.img || '';
+
+    if (validImageUrl(imageUrl)) {
+        var img = document.createElement('img');
+        img.className = 'notice-image';
+        img.src = imageUrl;
+        img.alt = item.title || '公告图片';
+        img.loading = 'lazy';
+        img.referrerPolicy = 'no-referrer';
+
+        img.onerror = function () {
+            img.remove();
+        };
+
+        card.appendChild(img);
+    }
+
+    // 公告正文
+    var contentText = item.content || item.desc || '';
+    var content = createElement(
+        'div',
+        'notice-content collapsed',
+        contentText
+    );
+
+    card.appendChild(content);
+
+    // 展开 / 收起
+    var bottom = createElement('div', 'notice-bottom');
+    var btn = createElement('button', 'expand-btn', '展开全文 ↓');
+    btn.type = 'button';
+
+    // 内容较短时不显示展开按钮
+    var isExpanded = false;
+
+    btn.addEventListener('click', function () {
+        isExpanded = !isExpanded;
+
+        if (isExpanded) {
+            content.classList.remove('collapsed');
+            btn.textContent = '收起内容 ↑';
+        } else {
+            content.classList.add('collapsed');
+            btn.textContent = '展开全文 ↓';
+        }
+    });
+
+    bottom.appendChild(btn);
+    card.appendChild(bottom);
+
+    // 让按钮在内容较短时也可使用，保持列表样式统一
+    return card;
+}
+
+function loadNotices() {
+    var list = document.getElementById('noticeList');
+
+    fetch(JSON_URL, {
+        method: 'GET',
+        cache: 'no-cache'
+    })
+    .then(function (response) {
+        if (!response.ok) {
+            throw new Error('HTTP ' + response.status);
+        }
+
+        return response.json();
+    })
+    .then(function (data) {
+        list.textContent = '';
+
+        // 支持直接数组，或 {code: 200, data: [...]}
+        var notices = Array.isArray(data)
+            ? data
+            : (data && Array.isArray(data.data) ? data.data : []);
+
+        if (notices.length === 0) {
+            list.appendChild(
+                createElement('div', 'state-box', '暂无公告')
+            );
+            return;
+        }
+
+        notices.forEach(function (item) {
+            if (item && typeof item === 'object') {
+                list.appendChild(createNotice(item));
+            }
+        });
+
+        if (list.children.length === 0) {
+            list.appendChild(
+                createElement('div', 'state-box', '暂无公告')
+            );
+        }
+    })
+    .catch(function (error) {
+        console.error('公告加载失败：', error);
+
+        list.textContent = '';
+        list.appendChild(
+            createElement(
+                'div',
+                'state-box',
+                '公告加载失败，请稍后刷新重试'
+            )
+        );
+    });
+}
+
+loadNotices();
+</script>
+
+</body>
+</html>
