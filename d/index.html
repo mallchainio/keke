@@ -1,0 +1,581 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0b1020">
+<title>紫可可币圈下载站 - 交易平台 App 下载</title>
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg: #0b1020;
+    --card: #151c30;
+    --text: #f2f5ff;
+    --sub: #8d9ab5;
+    --primary: #7868ff;
+    --border: rgba(255,255,255,.07);
+}
+
+body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont,
+        "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+    min-height: 100vh;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.container {
+    width: 100%;
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 20px 16px 40px;
+}
+
+/* 顶部导航 */
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0 25px;
+    gap: 12px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 19px;
+    font-weight: 800;
+}
+
+.logo-icon {
+    width: 38px;
+    height: 38px;
+    flex-shrink: 0;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #9382ff, #4c6fff);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 23px;
+    box-shadow: 0 5px 20px #6256ff35;
+}
+
+.nav-tag {
+    color: #a8b3ca;
+    font-size: 11px;
+    border: 1px solid var(--border);
+    padding: 7px 11px;
+    border-radius: 20px;
+}
+
+/* 首页介绍 */
+.hero {
+    position: relative;
+    overflow: hidden;
+    padding: 30px 24px;
+    border-radius: 22px;
+    background:
+        radial-gradient(ellipse at 100% 0%, #6c5cff45, transparent 48%),
+        linear-gradient(135deg, #1b2340, #141a2c 75%);
+    border: 1px solid rgba(151,137,255,.18);
+    margin-bottom: 28px;
+}
+
+.hero-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 12px;
+    color: #b9b0ff;
+    background: #8170ff19;
+    padding: 7px 11px;
+    border-radius: 20px;
+    margin-bottom: 17px;
+}
+
+.hero h1 {
+    font-size: clamp(25px, 5vw, 35px);
+    line-height: 1.4;
+    letter-spacing: -1px;
+    margin-bottom: 12px;
+}
+
+.hero h1 span {
+    color: #a99bff;
+}
+
+.hero p {
+    color: #aab5ce;
+    font-size: 14px;
+    line-height: 1.9;
+    max-width: 480px;
+}
+
+.hero-bottom {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 22px;
+}
+
+.hero-bottom span {
+    font-size: 12px;
+    color: #d0d7ea;
+    padding: 8px 11px;
+    background: #ffffff0b;
+    border: 1px solid #ffffff0d;
+    border-radius: 9px;
+}
+
+/* 列表标题 */
+.section-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.section-title h2 {
+    font-size: 19px;
+}
+
+.section-title p {
+    color: var(--sub);
+    font-size: 12px;
+}
+
+/* App 列表 */
+.app-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.app-card {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 17px;
+    border-radius: 17px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    transition: border-color .2s, transform .2s;
+}
+
+.app-card:hover {
+    border-color: #7567ff70;
+    transform: translateY(-2px);
+}
+
+/* 平台图标 */
+.app-icon {
+    flex-shrink: 0;
+    width: 54px;
+    height: 54px;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 25px;
+    font-weight: 800;
+}
+
+.binance {
+    background: linear-gradient(135deg, #f8d34b, #e5a900);
+    color: #211900;
+}
+
+.okx {
+    background: linear-gradient(135deg, #343b4e, #090c14);
+    border: 1px solid #414a5d;
+    color: #fff;
+    font-size: 20px;
+}
+
+.bybit {
+    background: linear-gradient(135deg, #ffdb49, #ff9e22);
+    color: #231700;
+}
+
+.gate {
+    background: linear-gradient(135deg, #2d86ff, #4648db);
+    color: #fff;
+}
+
+.app-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.app-name-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 7px;
+    margin-bottom: 7px;
+}
+
+.app-name {
+    font-size: 16px;
+    font-weight: 750;
+}
+
+.tag {
+    font-size: 10px;
+    padding: 3px 6px;
+    border-radius: 5px;
+    color: #a9b2ca;
+    background: #ffffff0b;
+}
+
+.tag-hot {
+    color: #ffcb75;
+    background: #ffbb2416;
+}
+
+.app-desc {
+    color: var(--sub);
+    font-size: 12px;
+    line-height: 1.7;
+    overflow-wrap: anywhere;
+}
+
+/* 右侧下载按钮 */
+.app-actions {
+    display: flex;
+    flex-shrink: 0;
+    width: 104px;
+}
+
+.btn-download {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 40px;
+    padding: 8px 6px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #8270ff, #5b65ed);
+    color: #fff;
+    font-size: 12px;
+    font-weight: 700;
+    white-space: nowrap;
+    text-align: center;
+    box-shadow: 0 4px 12px #6555ff22;
+    transition: .2s;
+}
+
+.btn-download:hover {
+    filter: brightness(1.15);
+}
+
+.btn-download:active {
+    transform: scale(.96);
+}
+
+/* 安全提示 */
+.notice {
+    margin-top: 25px;
+    padding: 17px;
+    border: 1px solid #ffca6420;
+    border-radius: 14px;
+    background: #ffca6408;
+}
+
+.notice-title {
+    color: #ffd27b;
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.notice p {
+    color: #9ba7bf;
+    font-size: 12px;
+    line-height: 1.9;
+}
+
+/* 页脚 */
+.footer {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+    text-align: center;
+    color: #68758e;
+    font-size: 11px;
+    line-height: 2;
+}
+
+/* 手机适配 */
+@media (max-width: 480px) {
+    .container {
+        padding: 14px 12px 28px;
+    }
+
+    .nav {
+        padding-bottom: 18px;
+    }
+
+    .hero {
+        padding: 24px 18px;
+        border-radius: 18px;
+        margin-bottom: 24px;
+    }
+
+    .app-card {
+        gap: 10px;
+        padding: 13px 10px;
+        border-radius: 14px;
+    }
+
+    .app-icon {
+        width: 43px;
+        height: 43px;
+        border-radius: 11px;
+        font-size: 21px;
+    }
+
+    .app-icon.okx {
+        font-size: 17px;
+    }
+
+    .app-name {
+        font-size: 14px;
+    }
+
+    .app-desc {
+        font-size: 11px;
+    }
+
+    .app-actions {
+        width: 82px;
+    }
+
+    .btn-download {
+        min-height: 36px;
+        padding: 6px 4px;
+        font-size: 11px;
+        border-radius: 8px;
+    }
+
+    .section-title h2 {
+        font-size: 17px;
+    }
+
+    .nav-tag {
+        font-size: 10px;
+    }
+}
+
+/* 超窄屏幕 */
+@media (max-width: 350px) {
+    .app-card {
+        gap: 8px;
+        padding: 11px 8px;
+    }
+
+    .app-icon {
+        width: 38px;
+        height: 38px;
+    }
+
+    .app-actions {
+        width: 74px;
+    }
+
+    .app-name {
+        font-size: 13px;
+    }
+
+    .btn-download {
+        font-size: 10px;
+    }
+}
+</style>
+</head>
+
+<body>
+<div class="container">
+
+    <!-- 顶部 -->
+    <header class="nav">
+        <div class="logo">
+            <div class="logo-icon">₿</div>
+            <span>紫可可币圈下载站</span>
+        </div>
+        <div class="nav-tag">APP DOWNLOAD</div>
+    </header>
+
+    <!-- 首页介绍 -->
+    <section class="hero">
+        <div class="hero-label">✦ 数字资产应用导航</div>
+        <h1>常用交易平台<br><span>一站式下载</span></h1>
+        <p>
+            汇集常用数字资产交易平台,社区平台，
+            快速找到应用下载入口，轻松管理你的数字资产。
+        </p>
+    </section>
+
+    <!-- 平台列表 -->
+    <div class="section-title">
+        <h2>交易平台</h2>
+        <p>选择平台立即访问</p>
+    </div>
+
+    <main class="app-list">
+
+        
+        <article class="app-card">
+            <div class="app-icon binance">Z</div>
+
+            <div class="app-info">
+                <div class="app-name-row">
+                    <span class="app-name">紫可可影视</span>
+                    <span class="tag tag-hot">影视应用</span>
+                </div>
+                <p class="app-desc">
+                    海量影视剧集
+                </p>
+            </div>
+
+            <div class="app-actions">
+                <a class="btn-download"
+                   href="https://zikeke.app/zikeke.apk"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    立即下载 ↗
+                </a>
+            </div>
+        </article>
+        
+        <article class="app-card">
+            <div class="app-icon binance">D</div>
+
+            <div class="app-info">
+                <div class="app-name-row">
+                    <span class="app-name">DeBox</span>
+                    <span class="tag tag-hot">通信应用</span>
+                </div>
+                <p class="app-desc">
+                    安心畅聊 私密无忧
+                </p>
+            </div>
+
+            <div class="app-actions">
+                <a class="btn-download"
+                   href="https://z7anbei.com/download/debox/debox.apk"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    立即下载 ↗
+                </a>
+            </div>
+        </article>
+        
+        
+        <article class="app-card">
+            <div class="app-icon binance">D</div>
+
+            <div class="app-info">
+                <div class="app-name-row">
+                    <span class="app-name">DeBox 备用下载线路</span>
+                    <span class="tag tag-hot">通信应用</span>
+                </div>
+                <p class="app-desc">
+                    安心畅聊 私密无忧
+                </p>
+            </div>
+
+            <div class="app-actions">
+                <a class="btn-download"
+                   href="https://zikeke.cc/apk/debox.apk"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    立即下载 ↗
+                </a>
+            </div>
+        </article>
+
+
+        <!-- Bybit -->
+        <article class="app-card">
+            <div class="app-icon bybit">T</div>
+
+            <div class="app-info">
+                <div class="app-name-row">
+                    <span class="app-name">Telegram</span>
+                    <span class="tag">通信应用</span>
+                </div>
+                <p class="app-desc">
+                    快速、安全的跨平台通讯应用。
+                </p>
+            </div>
+
+            <div class="app-actions">
+                <a class="btn-download"
+                   href="https://apidata.zikeke.app/apk/telegram.apk"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    立即下载 ↗
+                </a>
+            </div>
+        </article>
+
+        <!-- Gate -->
+        <article class="app-card">
+            <div class="app-icon gate">X</div>
+
+            <div class="app-info">
+                <div class="app-name-row">
+                    <span class="app-name">X(Twitter)</span>
+                    <span class="tag">通信应用</span>
+                </div>
+                <p class="app-desc">
+                    体验全球最简洁明了的社交媒体平台。
+                </p>
+            </div>
+
+            <div class="app-actions">
+                <a class="btn-download"
+                   href="https://apidata.zikeke.app/apk/x.apk"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    立即下载 ↗
+                </a>
+            </div>
+        </article>
+
+    </main>
+
+    <!-- 安全提示 -->
+    <section class="notice">
+        <div class="notice-title">⚠ 下载与交易安全提醒</div>
+        <p>
+            请通过交易平台官方网站或官方应用商店下载应用，
+            谨防仿冒网站和虚假安装包。请确认相关服务在你所在地区合法可用。
+            数字资产交易存在较高风险，请谨慎决策。
+        </p>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <p>币圈下载站 · 数字资产应用导航</p>
+        <p>本站仅提供应用导航，不代表任何交易平台，也不提供投资建议。</p>
+        <p>© 2026 All Rights Reserved.</p>
+    </footer>
+
+</div>
+</body>
+</html>
