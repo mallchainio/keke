@@ -79,6 +79,52 @@ video {
     color: #888;
 }
 
+/* 锁仓链接 */
+.lock-box {
+    margin-top: 18px;
+}
+
+.lock-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(166, 106, 255, .08);
+    border: 1px solid rgba(166, 106, 255, .35);
+    border-radius: 10px;
+    padding: 14px 16px;
+    text-decoration: none;
+    color: #fff;
+    font-size: 14px;
+    transition: background .2s;
+}
+
+.lock-link:hover {
+    background: rgba(166, 106, 255, .16);
+}
+
+.lock-link .lock-icon {
+    width: 22px;
+    height: 22px;
+    flex-shrink: 0;
+    color: #a66aff;
+}
+
+.lock-link .lock-text {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+.lock-link .lock-title {
+    font-weight: bold;
+}
+
+.lock-link .lock-url {
+    font-size: 12px;
+    color: #a66aff;
+    word-break: break-all;
+}
+
 .footer {
     text-align: center;
     color: #555;
@@ -147,6 +193,18 @@ video {
     <div class="info">
         <h2>正在播放</h2>
         <p>紫可可 · 让娱乐连接价值，让 Web3 走进日常生活</p>
+
+        <div class="lock-box">
+            <a class="lock-link" href="https://www.pinksale.finance/" target="_blank" rel="noopener noreferrer">
+                <svg class="lock-icon" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M17 9V7a5 5 0 0 0-10 0v2H6a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-9a2 2 0 0 0-2-2h-1zm-8-2a3 3 0 0 1 6 0v2H9V7zm4 10.73V20h-2v-2.27a2 2 0 1 1 2 0z"/>
+                </svg>
+                <span class="lock-text">
+                    <span class="lock-title">锁仓记录</span>
+                    <span class="lock-url">https://www.pinksale.finance/</span>
+                </span>
+            </a>
+        </div>
     </div>
 
 </main>
