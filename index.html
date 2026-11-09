@@ -893,7 +893,7 @@
  }
 
 
- /* ===== Contract Card ===== */
+ /* ===== Contract Card (保留基础样式，已移除慈善专用样式) ===== */
  .contract-card {
  display: flex;
  align-items: center;
@@ -913,17 +913,6 @@
  transform: translateY(-2px);
  }
 
- .contract-card.charity {
- background: rgba(34, 197, 94, 0.08);
- border-color: rgba(34, 197, 94, 0.35);
- margin-top: 12px;
- }
-
- .contract-card.charity:hover {
- border-color: #22c55e;
- box-shadow: 0 4px 24px rgba(34, 197, 94, 0.2);
- }
-
  .contract-icon {
  width: 48px;
  height: 48px;
@@ -938,11 +927,6 @@
  flex-shrink: 0;
  }
 
- .contract-card.charity .contract-icon {
- background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
- color: #fff;
- }
-
  .contract-info { flex: 1; min-width: 0; }
 
  .contract-label {
@@ -952,8 +936,6 @@
  }
 
  .contract-label strong { color: #f0b90b; }
-
- .contract-card.charity .contract-label strong { color: #22c55e; }
 
  .contract-address {
  font-family: "SF Mono", "JetBrains Mono", Consolas, monospace;
@@ -980,13 +962,6 @@
  }
 
  .copy-btn:hover { background: #f0b90b; color: #1e1e1e; }
-
- .copy-btn.charity {
- border-color: #22c55e;
- color: #22c55e;
- }
-
- .copy-btn.charity:hover { background: #22c55e; color: #fff; }
 
  .copy-btn.copied {
  background: #22c55e !important;
@@ -1205,23 +1180,6 @@
  <a href="https://t.me/zikekeapp" class="hero-social-btn" aria-label="Telegram" title="Telegram">✈</a>
  <a href="https://m.debox.pro/group?id=ymorh9pq&code=mdufye43" class="hero-social-btn" aria-label="DeBox" title="DeBox">D</a>
  </div>
- <!---div class="contract-card animate delay-4" id="contractCard">
- <div class="contract-icon">B</div>
- <div class="contract-info">
- <div class="contract-label"><strong>ZKK</strong> · BSC 母币合约</div>
- <div class="contract-address" id="contractAddress" title="点击复制合约地址">0x9f26d65b44438ec1a9ec85ea88737b04b31affff</div>
- </div>
- <button class="copy-btn" onclick="copyContract(event)">复制</button>
- </div--->
- <!-- 新增：紫可可慈善 子币 -->
- <div class="contract-card charity animate delay-4" id="charityCard">
- <div class="contract-icon">❤</div>
- <div class="contract-info">
- <div class="contract-label"><strong>紫可可慈善</strong> · 合约</div>
- <div class="contract-address" id="charityAddress" title="点击复制合约地址">0xa08a0ab19237dbddc54b9a57810aaab546787777</div>
- </div>
- <button class="copy-btn charity" onclick="copyCharity(event)">复制</button>
- </div>
  </div>
  <div class="hero-qr animate delay-4">
  <div class="qr-box">
@@ -1418,23 +1376,6 @@
  </article>
  <article class="faq-item">
  <div class="faq-question">
- <span>ZKK 代币合约地址是什么？</span>
- </div>
- <div class="faq-answer">
- 紫可可在BSC链上的代币 ZKK 合约：0x9f26d65b44438ec1a9ec85ea88737b04b31affff。在首页点击合约卡片即可一键复制，请注意核对地址谨防假冒。
- </div>
- </article>
- <!-- 新增 FAQ -->
- <article class="faq-item">
- <div class="faq-question">
- <span>紫可可慈善 代币合约地址是什么？</span>
- </div>
- <div class="faq-answer">
- 紫可可慈善（子币）在BSC链上的合约：0xa08a0ab19237dbddc54b9a57810aaab546787777。在首页点击对应合约卡片即可一键复制，请注意核对地址谨防假冒。
- </div>
- </article>
- <article class="faq-item">
- <div class="faq-question">
  <span>紫可可官方网站是什么？</span>
  </div>
  <div class="faq-answer">
@@ -1553,16 +1494,10 @@
 
  <script>
  var CONTRACT_ADDR = '0x9f26d65b44438ec1a9ec85ea88737b04b31affff';
- var CHARITY_ADDR = '0xa08a0ab19237dbddc54b9a57810aaab546787777';
 
  function copyContract(e) {
  e.stopPropagation();
  doCopy(CONTRACT_ADDR, e.target);
- }
-
- function copyCharity(e) {
- e.stopPropagation();
- doCopy(CHARITY_ADDR, e.target);
  }
 
  function doCopy(text, btn) {
@@ -1601,13 +1536,6 @@
  if (addr) {
  addr.addEventListener('click', function() {
  doCopy(CONTRACT_ADDR, document.querySelector('#contractCard .copy-btn'));
- });
- }
-
- var charityAddr = document.getElementById('charityAddress');
- if (charityAddr) {
- charityAddr.addEventListener('click', function() {
- doCopy(CHARITY_ADDR, document.querySelector('#charityCard .copy-btn'));
  });
  }
  });
